@@ -1,0 +1,10 @@
+{
+  "name": "BDaaS",
+  "version": "0.0.1",
+  "description": "Birthday as a Service",
+  "main": "index.js",
+  "repository": "https://github.com/okezieuc/BDaaS.git",
+  "author": "Okezie Chiedozie",
+  "license": "MIT",
+  "private": true
+}
