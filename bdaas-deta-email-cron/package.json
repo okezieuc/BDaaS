@@ -2,5 +2,10 @@
   "name": "bdaas-deta-email-cron",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^1.24.0",
+    "deta": "^1.0.1",
+    "nodemailer": "^6.6.5"
+  }
 }
