@@ -7,5 +7,5 @@
   "author": "Okezie Chiedozie",
   "license": "MIT",
   "private": true,
-  "workspaces": ["bdaas"]
+  "workspaces": ["bdaas", "bdaas-deta-email-cron"]
 }
