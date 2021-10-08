@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import Header from "../components/dashboard/header";
 import NewBirthday from "../components/dashboard/newBirthday";
+import Birthdays from "../components/dashboard/birthdays";
 
 export default function Dashboard() {
   const [session, setSession] = useState(null);
@@ -25,6 +26,7 @@ export default function Dashboard() {
         Add birthday
       </button>
       {newBirthdayOpen ? <NewBirthday /> : ""}
+      <Birthdays />
     </div>
   );
 }
