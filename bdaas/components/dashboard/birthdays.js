@@ -15,18 +15,19 @@ function Birthday({ data }) {
 export default function Birthdays() {
   const [birthdays, setBirthdays] = useState([]);
 
-  useEffect(() => {
-    async function loadBirthdays() {
-      const { data, error } = await supabase.from("birthdays").select();
-      setBirthdays(data);
-      return data;
-    }
+  async function loadBirthdays() {
+    const { data, error } = await supabase.from("birthdays").select();
+    setBirthdays(data);
+    return data;
+  }
 
+  useEffect(() => {
     loadBirthdays();
   }, []);
 
   return (
     <div>
+      <button onClick={loadBirthdays}>Refresh Birthdays</button>
       {birthdays.map((birthday) => (
         <Birthday data={birthday} />
       ))}
