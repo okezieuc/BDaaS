@@ -34,7 +34,10 @@ export default function Dashboard() {
           >
             Add birthday
           </button>
-          {newBirthdayOpen ? <NewBirthday /> : ""}
+          <NewBirthday
+            open={newBirthdayOpen}
+            onClose={() => setNewBirthdayOpen(false)}
+          />
           <Birthdays />
         </div>
       </Container>
