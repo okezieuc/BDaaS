@@ -21,7 +21,7 @@ function HeaderLink({ active, to, title }) {
 
 export default function Header() {
   return (
-    <div class="pt-4 border-bs bg-gray-700">
+    <div class="pt-4 bg-gray-700">
       <Container>
         <div class="flex items-center justify-between">
           <h1 class="text-3xl my-4 font-bold text-gray-200">BDaaS</h1>
