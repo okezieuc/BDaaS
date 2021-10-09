@@ -6,6 +6,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^1.24.0",
     "deta": "^1.0.1",
+    "dotenv": "^10.0.0",
     "nodemailer": "^6.6.5"
   }
 }
