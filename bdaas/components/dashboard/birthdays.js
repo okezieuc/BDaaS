@@ -19,7 +19,9 @@ export default function Birthdays() {
 
   async function loadBirthdays() {
     const { data, error } = await supabase.from("birthdays").select();
-    setBirthdays(data);
+    if (!error) {
+      setBirthdays(data);
+    }
     return data;
   }
 
@@ -38,3 +40,11 @@ export default function Birthdays() {
     </div>
   );
 }
+
+Birthday.defaultProps = {
+  data: {
+    celebrant_name: "John Doe",
+    birthday_day: 4,
+    birthday_month: 3,
+  },
+};
