@@ -5,14 +5,16 @@ import { supabase } from "../../utils/supabaseClient";
 
 function Birthday({ data }) {
   return (
-    <div class="border shadow-sm rounded-lg p-4">
-      <p class="text-xl font-semibold">{data.celebrant_name}</p>
-      <p class="mt-4">
+    <div class="border border-gray-700 bg-gray-800 shadow-sm hover:shadow-xl rounded-lg p-4">
+      <p class="text-xl font-semibold text-gray-300">{data.celebrant_name}</p>
+      <p class="mt-4 text-gray-400">
         {data.birthday_day} {data.birthday_month}
       </p>
     </div>
   );
 }
+
+// TODO: Change refresh birthdays to an icon
 
 export default function Birthdays() {
   const [birthdays, setBirthdays] = useState([]);
@@ -31,7 +33,12 @@ export default function Birthdays() {
 
   return (
     <div>
-      <button onClick={loadBirthdays}>Refresh Birthdays</button>
+      <button
+        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
+        onClick={loadBirthdays}
+      >
+        Refresh Birthdays
+      </button>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {birthdays.map((birthday) => (
           <Birthday data={birthday} />

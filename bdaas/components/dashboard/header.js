@@ -3,15 +3,15 @@ import Link from "next/link";
 
 // TODO: Make active to depend on the current page location
 
-function HeaderLink({ active, to }) {
+function HeaderLink({ active, to, title }) {
   return (
     <div
-      class={`px-4 py-2 border-gray-800 hover:bg-gray-50 ${
-        active ? "border-b-4 bg-gray-100" : ""
+      class={`px-4 py-2 border-indigo-500 hover:bg-gray-700 font-medium ${
+        active ? "border-b-4 text-indigo-500" : "text-gray-300"
       }`}
     >
       <Link href={to}>
-        <a class="text-lg ">Dashboard</a>
+        <a class="text-lg ">{title}</a>
       </Link>
     </div>
   );
@@ -21,11 +21,11 @@ function HeaderLink({ active, to }) {
 
 export default function Header() {
   return (
-    <div class="pt-4 border-b">
+    <div class="pt-4 border-bs bg-gray-700">
       <Container>
         <div class="flex items-center justify-between">
-          <h1 class="text-3xl my-4 font-bold">BDaaS</h1>
-          <button class="bg-gray-900 text-white px-6 py-2 text-lg hover:bg-gray-800">
+          <h1 class="text-3xl my-4 font-bold text-gray-200">BDaaS</h1>
+          <button class="bg-indigo-600 text-white px-6 py-2 text-lg hover:bg-indigo-500">
             Sign out
           </button>
         </div>
