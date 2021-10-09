@@ -7,7 +7,7 @@ const createEmailBody = require("./utils/createEmailBody");
 app.lib.cron((event) => {
   async function sendBirthdayMails() {
     const t = new Date();
-    const day = t.getDay();
+    const day = t.getDate();
     const month = t.getMonth();
 
     const { data, error } = await supabase
