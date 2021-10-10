@@ -3,7 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { supabase } from "../../utils/supabaseClient";
 import { months } from "../../utils/months";
 
-export default function NewBirthday({ open, onClose }) {
+export default function NewBirthday({ open, onClose, loadBirthdays }) {
   const [loading, setLoading] = useState(false);
   const [celebrantName, setCelebrantName] = useState(null);
   const [celebrantBirthDay, setCelebrantBirthDay] = useState(null);
@@ -27,6 +27,7 @@ export default function NewBirthday({ open, onClose }) {
       alert(error.message);
     } finally {
       setLoading(false);
+      loadBirthdays();
       onClose();
     }
   }
