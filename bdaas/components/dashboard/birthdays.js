@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react";
 import { supabase } from "../../utils/supabaseClient";
+import { months } from "../../utils/months";
 
 // TODO: Add a card that says Add Birthday
-// TODO: Show birthday months
 
 function Birthday({ data }) {
   return (
-    <div className="border border-gray-700 bg-gray-800 shadow-sm hover:shadow-xl rounded-lg p-4">
-      <p className="text-xl font-semibold text-gray-300">{data.celebrant_name}</p>
+    <div className="border border-gray-700 bg-gray-700 shadow-sm hover:shadow-xl rounded-lg p-4">
+      <p className="text-xl font-semibold text-gray-300">
+        {data.celebrant_name}
+      </p>
       <p className="mt-4 text-gray-400">
-        {data.birthday_day} {data.birthday_month}
+        {data.birthday_day} {months[data.birthday_month]}
       </p>
     </div>
   );
