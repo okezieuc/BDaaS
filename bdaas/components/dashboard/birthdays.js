@@ -7,7 +7,7 @@ import { months } from "../../utils/months";
 
 // TODO: Add a card that says Add Birthday
 
-function Birthday({ data }) {
+function Birthday({ data, loadBirthdays }) {
   async function deleteBirthday() {
     try {
       let { error } = await supabase
@@ -19,6 +19,8 @@ function Birthday({ data }) {
       }
     } catch (error) {
       alert(error.message);
+    } finally {
+      loadBirthdays();
     }
   }
 
@@ -178,10 +180,15 @@ export default function Birthdays() {
       <NewBirthday
         open={newBirthdayOpen}
         onClose={() => setNewBirthdayOpen(false)}
+        loadBirthdays={loadBirthdays}
       />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {birthdays.map((birthday) => (
-          <Birthday data={birthday} key={birthday.birthday_id} />
+          <Birthday
+            data={birthday}
+            key={birthday.birthday_id}
+            loadBirthdays={loadBirthdays}
+          />
         ))}
       </div>
     </div>

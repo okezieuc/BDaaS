@@ -21,7 +21,7 @@ export default function Dashboard() {
     <div className="bg-gray-800 min-h-screen">
       <Header />
       <Container>
-        <div className="mt-8">
+        <div className="py-8">
           <Birthdays />
         </div>
       </Container>
