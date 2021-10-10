@@ -84,25 +84,25 @@ export default function NewBirthday({ open, onClose }) {
               <div>
                 <div>
                   <div>
-                    <label htmlFor="celebrant-name" class="text-gray-200">
+                    <label htmlFor="celebrant-name" className="text-gray-200">
                       Name
                     </label>
                   </div>
                   <input
                     id="celebrant-name"
                     type="text"
-                    class="w-full rounded-lg bg-gray-800 text-gray-300 border-gray-700"
+                    className="w-full rounded-lg bg-gray-800 text-gray-300 border-gray-700"
                     placeholder="John Doe"
                     onChange={(e) => setCelebrantName(e.target.value)}
                   />
                 </div>
-                <div class="flex gap-4 mt-4 ">
+                <div className="flex gap-4 mt-4 ">
                   <div>
-                    <label htmlFor="birthday-month text-gray-200" class="text-gray-200">
+                    <label htmlFor="birthday-month text-gray-200" className="text-gray-200">
                       Birthday Month
                     </label>
                     <select
-                      class="form-select w-full rounded-lg  bg-gray-800 text-gray-300 border-gray-700"
+                      className="form-select w-full rounded-lg  bg-gray-800 text-gray-300 border-gray-700"
                       onChange={(e) =>
                         setCelebrantBirthMonth(parseInt(e.target.value))
                       }
@@ -113,13 +113,13 @@ export default function NewBirthday({ open, onClose }) {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="birthday-day" class="text-gray-200">
+                    <label htmlFor="birthday-day" className="text-gray-200">
                       Day of Month
                     </label>
                     <input
                       id="birthday-day"
                       type="number"
-                      class="w-full rounded-lg bg-gray-800 text-gray-300 border-gray-700"
+                      className="w-full rounded-lg bg-gray-800 text-gray-300 border-gray-700"
                       placeholder="e.g. 18"
                       onChange={(e) => setCelebrantBirthDay(e.target.value)}
                     />

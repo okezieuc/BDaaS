@@ -20,16 +20,16 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div class="bg-gray-800 min-h-screen">
+    <div className="bg-gray-800 min-h-screen">
       <Header />
       <Container>
-        <div class="mt-8">
+        <div className="mt-8">
           <div>
             Howdy{" "}
             {session ? session.user.user_metadata.full_name : "not logged in"}
           </div>
           <button
-            class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
+            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
             onClick={() => setNewBirthdayOpen(!newBirthdayOpen)}
           >
             Add birthday
