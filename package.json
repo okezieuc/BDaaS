@@ -9,7 +9,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "bdaas"
+      "bdaas",
+      "nodejs-cron"
     ],
     "nohoist": [
       "**/tailwindcss",
