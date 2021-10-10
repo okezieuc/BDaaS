@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { Popover } from "@headlessui/react";
+
 import NewBirthday from "../../components/dashboard/newBirthday";
 import { supabase } from "../../utils/supabaseClient";
 import { months } from "../../utils/months";
@@ -6,11 +8,78 @@ import { months } from "../../utils/months";
 // TODO: Add a card that says Add Birthday
 
 function Birthday({ data }) {
+  async function deleteBirthday() {
+    try {
+      let { error } = await supabase
+        .from("birthdays")
+        .delete()
+        .match({ birthday_id: data.birthday_id });
+      if (error) {
+        throw error;
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   return (
     <div className="border border-gray-700 bg-gray-700 shadow-sm hover:shadow-xl rounded-lg p-4">
-      <p className="text-xl font-semibold text-gray-300">
-        {data.celebrant_name}
-      </p>
+      <div className="flex justify-between">
+        <p className="text-xl font-semibold text-gray-300">
+          {data.celebrant_name}
+        </p>
+        <div>
+          <Popover className="relative">
+            <Popover.Button>
+              <div className="bg-gray-500 rounded-md text-gray-800">
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
+                </svg>
+              </div>
+            </Popover.Button>
+
+            <Popover.Panel className="absolute z-10 transform -translate-x-3/4 bg-gray-600 rounded-lg p-4">
+              <div className="grid text-gray-400">
+                <button
+                  className="hover:text-red-400"
+                  onClick={() => deleteBirthday()}
+                >
+                  <div className="flex gap-2">
+                    <span>
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                    </span>
+                    <span>Delete</span>
+                  </div>
+                </button>
+              </div>
+            </Popover.Panel>
+          </Popover>
+        </div>
+      </div>
       <div className="flex justify-between items-center gap-2 mt-4 text-gray-400">
         <div className="text-indigo-400">
           <svg

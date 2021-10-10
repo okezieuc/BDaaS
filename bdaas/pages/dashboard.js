@@ -22,10 +22,6 @@ export default function Dashboard() {
       <Header />
       <Container>
         <div className="mt-8">
-          <div>
-            Howdy{" "}
-            {session ? session.user.user_metadata.full_name : "not logged in"}
-          </div>
           <Birthdays />
         </div>
       </Container>
