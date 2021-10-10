@@ -108,7 +108,7 @@ export default function NewBirthday({ open, onClose }) {
                       }
                     >
                       {months.map((month, index) => (
-                        <option value={index}>{month}</option>
+                        <option value={index} key={month}>{month}</option>
                       ))}
                     </select>
                   </div>
