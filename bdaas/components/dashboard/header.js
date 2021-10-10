@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 import Container from "../container";
 import Link from "next/link";
 import { supabase } from "../../utils/supabaseClient";
-
-// TODO: Make active to depend on the current page location
 
 function HeaderLink({ active, to, title }) {
   return (
@@ -19,10 +17,8 @@ function HeaderLink({ active, to, title }) {
   );
 }
 
-// TODO: Make the Sign out button to sign out of the account
-
 export default function Header() {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleSignout = async () => {
     try {
@@ -31,7 +27,7 @@ export default function Header() {
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
-      router.push('/')
+      router.push("/");
     }
   };
 
@@ -39,7 +35,9 @@ export default function Header() {
     <div className="pt-4 bg-gray-700">
       <Container>
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl my-4 font-bold text-gray-200">BDaaS</h1>
+          <h1 className="text-3xl my-4 font-bold text-gray-200">
+            <Link href="/">BDaaS</Link>
+          </h1>
           <button
             onClick={(e) => {
               e.preventDefault();
@@ -52,7 +50,6 @@ export default function Header() {
         </div>
         <div className="flex mt-8">
           <HeaderLink active={true} to="/dashboard" title="Dashboard" />
-          <HeaderLink active={false} to="/" title="About us" />
         </div>
       </Container>
     </div>
