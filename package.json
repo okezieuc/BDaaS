@@ -7,5 +7,13 @@
   "author": "Okezie Chiedozie",
   "license": "MIT",
   "private": true,
-  "workspaces": ["bdaas"]
+  "workspaces": {
+    "packages": [
+      "bdaas"
+    ],
+    "nohoist": [
+      "**/tailwindcss",
+      "**/@tailwindcss/**"
+    ]
+  }
 }

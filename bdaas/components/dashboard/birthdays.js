@@ -5,9 +5,9 @@ import { supabase } from "../../utils/supabaseClient";
 
 function Birthday({ data }) {
   return (
-    <div class="border border-gray-700 bg-gray-800 shadow-sm hover:shadow-xl rounded-lg p-4">
-      <p class="text-xl font-semibold text-gray-300">{data.celebrant_name}</p>
-      <p class="mt-4 text-gray-400">
+    <div className="border border-gray-700 bg-gray-800 shadow-sm hover:shadow-xl rounded-lg p-4">
+      <p className="text-xl font-semibold text-gray-300">{data.celebrant_name}</p>
+      <p className="mt-4 text-gray-400">
         {data.birthday_day} {data.birthday_month}
       </p>
     </div>
@@ -34,12 +34,12 @@ export default function Birthdays() {
   return (
     <div>
       <button
-        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
+        className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
         onClick={loadBirthdays}
       >
         Refresh Birthdays
       </button>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {birthdays.map((birthday) => (
           <Birthday data={birthday} />
         ))}

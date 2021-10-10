@@ -6,12 +6,12 @@ import Link from "next/link";
 function HeaderLink({ active, to, title }) {
   return (
     <div
-      class={`px-4 py-2 border-indigo-500 hover:bg-gray-700 font-medium ${
+      className={`px-4 py-2 border-indigo-500 hover:bg-gray-700 font-medium ${
         active ? "border-b-4 text-indigo-500" : "text-gray-300"
       }`}
     >
       <Link href={to}>
-        <a class="text-lg ">{title}</a>
+        <a className="text-lg ">{title}</a>
       </Link>
     </div>
   );
@@ -21,15 +21,15 @@ function HeaderLink({ active, to, title }) {
 
 export default function Header() {
   return (
-    <div class="pt-4 bg-gray-700">
+    <div className="pt-4 bg-gray-700">
       <Container>
-        <div class="flex items-center justify-between">
-          <h1 class="text-3xl my-4 font-bold text-gray-200">BDaaS</h1>
-          <button class="bg-indigo-600 text-white px-6 py-2 text-lg hover:bg-indigo-500">
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl my-4 font-bold text-gray-200">BDaaS</h1>
+          <button className="bg-indigo-600 text-white px-6 py-2 text-lg hover:bg-indigo-500">
             Sign out
           </button>
         </div>
-        <div class="flex mt-8">
+        <div className="flex mt-8">
           <HeaderLink active={true} to="/dashboard" title="Dashboard" />
           <HeaderLink active={false} to="/" title="About us" />
         </div>
