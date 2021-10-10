@@ -3,8 +3,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { supabase } from "../../utils/supabaseClient";
 import { months } from "../../utils/months";
 
-// TODO: Automatically close modal on birthday creation
-
 export default function NewBirthday({ open, onClose }) {
   const [loading, setLoading] = useState(false);
   const [celebrantName, setCelebrantName] = useState(null);
@@ -29,6 +27,7 @@ export default function NewBirthday({ open, onClose }) {
       alert(error.message);
     } finally {
       setLoading(false);
+      onClose();
     }
   }
 
@@ -98,7 +97,10 @@ export default function NewBirthday({ open, onClose }) {
                 </div>
                 <div className="flex gap-4 mt-4 ">
                   <div>
-                    <label htmlFor="birthday-month text-gray-200" className="text-gray-200">
+                    <label
+                      htmlFor="birthday-month text-gray-200"
+                      className="text-gray-200"
+                    >
                       Birthday Month
                     </label>
                     <select
@@ -108,7 +110,9 @@ export default function NewBirthday({ open, onClose }) {
                       }
                     >
                       {months.map((month, index) => (
-                        <option value={index} key={month}>{month}</option>
+                        <option value={index} key={month}>
+                          {month}
+                        </option>
                       ))}
                     </select>
                   </div>
