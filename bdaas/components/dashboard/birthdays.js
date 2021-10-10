@@ -24,7 +24,7 @@ function Birthday({ data }) {
 
   return (
     <div className="border border-gray-700 bg-gray-700 shadow-sm hover:shadow-xl rounded-lg p-4">
-      <div class="flex justify-between">
+      <div className="flex justify-between">
         <p className="text-xl font-semibold text-gray-300">
           {data.celebrant_name}
         </p>
@@ -55,7 +55,7 @@ function Birthday({ data }) {
                   className="hover:text-red-400"
                   onClick={() => deleteBirthday()}
                 >
-                  <div class="flex gap-2">
+                  <div className="flex gap-2">
                     <span>
                       <svg
                         className="w-6 h-6"
