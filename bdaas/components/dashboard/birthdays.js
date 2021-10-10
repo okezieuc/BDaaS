@@ -41,7 +41,7 @@ export default function Birthdays() {
       </button>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
         {birthdays.map((birthday) => (
-          <Birthday data={birthday} />
+          <Birthday data={birthday} key={birthday.birthday_id} />
         ))}
       </div>
     </div>
