@@ -1,6 +1,9 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { supabase } from "../../utils/supabaseClient";
+import { months } from "../../utils/months";
+
+// TODO: Switch to dark themed modal
 
 export default function NewBirthday({ open, onClose }) {
   const [loading, setLoading] = useState(false);
@@ -80,28 +83,40 @@ export default function NewBirthday({ open, onClose }) {
 
               <div>
                 <div>
-                  <label htmlFor="celebrant-name">Name</label>
+                  <div>
+                    <label htmlFor="celebrant-name">Name</label>
+                  </div>
                   <input
                     id="celebrant-name"
                     type="text"
+                    class="w-full rounded-lg"
+                    placeholder="John Doe"
                     onChange={(e) => setCelebrantName(e.target.value)}
                   />
                 </div>
-                <div>
-                  <label htmlFor="birthday-day">Birthday Day of Month</label>
-                  <input
-                    id="birthday-day"
-                    type="number"
-                    onChange={(e) => setCelebrantBirthDay(e.target.value)}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="birthday-month">Birthday Month of Year</label>
-                  <input
-                    id="birthday-month"
-                    type="number"
-                    onChange={(e) => setCelebrantBirthMonth(e.target.value)}
-                  />
+                <div class="flex gap-4 mt-4">
+                  <div>
+                    <label htmlFor="birthday-month">Birthday Month</label>
+                    <select
+                      class="form-select w-full rounded-lg"
+                      onChange={(e) =>
+                        setCelebrantBirthMonth(parseInt(e.target.value))
+                      }
+                    >
+                      {months.map((month, index) => (
+                        <option value={index}>{month}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="birthday-day">Day of Month</label>
+                    <input
+                      id="birthday-day"
+                      type="number"
+                      class="w-full rounded-lg"
+                      onChange={(e) => setCelebrantBirthDay(e.target.value)}
+                    />
+                  </div>
                 </div>
               </div>
 
