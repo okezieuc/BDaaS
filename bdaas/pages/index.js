@@ -3,7 +3,6 @@ import Link from "next/link";
 import { supabase } from "../utils/supabaseClient";
 
 // TODO: Add SD Card logo
-// TODO: Check for an active session and display link to dashboard instead if there is
 
 export default function IndexPage() {
   const [session, setSession] = useState(null);
