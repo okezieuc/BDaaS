@@ -2,14 +2,12 @@ import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import Container from "../components/container";
 import Header from "../components/dashboard/header";
-import NewBirthday from "../components/dashboard/newBirthday";
 import Birthdays from "../components/dashboard/birthdays";
 
 // TODO: Add icons to buttons
 
 export default function Dashboard() {
   const [session, setSession] = useState(null);
-  const [newBirthdayOpen, setNewBirthdayOpen] = useState(false);
 
   useEffect(() => {
     setSession(supabase.auth.session());
@@ -28,16 +26,6 @@ export default function Dashboard() {
             Howdy{" "}
             {session ? session.user.user_metadata.full_name : "not logged in"}
           </div>
-          <button
-            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2"
-            onClick={() => setNewBirthdayOpen(!newBirthdayOpen)}
-          >
-            Add birthday
-          </button>
-          <NewBirthday
-            open={newBirthdayOpen}
-            onClose={() => setNewBirthdayOpen(false)}
-          />
           <Birthdays />
         </div>
       </Container>
