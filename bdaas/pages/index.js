@@ -10,7 +10,10 @@ export default function IndexPage() {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({ provider: "google" });
+      const { error } = await supabase.auth.signIn(
+        { provider: "google" },
+        { redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard` }
+      );
       if (error) throw error;
     } catch (error) {
       alert(error.error_description || error.message);

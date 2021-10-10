@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "../../utils/supabaseClient";
 
 // TODO: Add a card that says Add Birthday
+// TODO: Show birthday months
 
 function Birthday({ data }) {
   return (
