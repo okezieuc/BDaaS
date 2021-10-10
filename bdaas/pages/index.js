@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 import { supabase } from "../utils/supabaseClient";
 
 // TODO: Add SD Card logo
 // TODO: Check for an active session and display link to dashboard instead if there is
 
 export default function IndexPage() {
+  const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setSession(supabase.auth.session());
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+  }, []);
 
   const handleLogin = async () => {
     try {
@@ -35,16 +44,24 @@ export default function IndexPage() {
           Sign up today to receive email notifications on people's birthdays.
         </h2>
         <div className="w-max md:mx-auto">
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              handleLogin();
-            }}
-            className="bg-indigo-600 px-4 py-2 text-white font-semibold hover:bg-indigo-500 mx-auto"
-            disabled={loading}
-          >
-            <span>{loading ? "Loading" : "Sign in with Google"}</span>
-          </button>
+          {session ? (
+            <Link href="/dashboard">
+              <a className="bg-indigo-600 px-4 py-2 text-white font-semibold hover:bg-indigo-500 mx-auto">
+                Go to My Dashboard
+              </a>
+            </Link>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                handleLogin();
+              }}
+              className="bg-indigo-600 px-4 py-2 text-white font-semibold hover:bg-indigo-500 mx-auto"
+              disabled={loading}
+            >
+              <span>{loading ? "Loading" : "Sign in with Google"}</span>
+            </button>
+          )}
         </div>
       </div>
     </div>
