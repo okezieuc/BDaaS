@@ -1,6 +1,6 @@
 # BDaaS (Birthday Tracker and Email Reminder)
 
-The first open-source birthday as a service that helps you say  more "Happy birthdays" and less "Sorry, I forgot your birthdays".
+The first open-source birthday as a service that helps you say  more "Happy birthdays" and less "Sorry, I forgot your birthdays" by sending you emails on the morning of your friends' birthdays.
 
 [Create your BDaaS account to get birthday reminders](https://bdaas.vercel.app).
 
@@ -12,5 +12,8 @@ BDaaS is brought to you by [Okezie Chiedozie](https://github.com/okezieuc). I wa
 BDaaS is built on Supabase. We use Supabase to allow users to login with their Google accounts. We also use PostgreSQL row level security rules provided via Supabase to restrict user access to birthday data stored in the database.
 
 The frontend was created with Next.js and Tailwindcss. Both were chosen due to their simplicity and ease of use. We also set up a nodejs cron job that runs once daily. This cron job is responsible for sending emails to users when it is the birthday of one of the people on their list.
+
+## TODO
+* Allow users to set their timezone and the time when they want to receive the email
 
 Contributions and suggestion are welcome. Feel free to send in a PR to fix bugs or add features.
